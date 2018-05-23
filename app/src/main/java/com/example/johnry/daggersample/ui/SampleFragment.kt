@@ -8,21 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.johnry.daggersample.R
+import com.example.johnry.daggersample.di.Choose
 import com.example.johnry.daggersample.di.DaggerSampleComponent
 import com.example.johnry.daggersample.stuff.Info
 import com.example.johnry.daggersample.stuff.InfoWithArguement
 import kotlinx.android.synthetic.main.fragment_blank.*
 import javax.inject.Inject
-import javax.inject.Named
 
 
 class SampleFragment : Fragment() {
 
     @Inject
     lateinit var info : Info
-    @set:[Inject Named("info_arg_one")]
+    @Inject @field:Choose("info_arg_one")
     lateinit var multiInfoOne : InfoWithArguement
-    @set:[Inject Named("info_arg_two")]
+    @Inject @field:Choose("info_arg_two")
     lateinit var multiInfoTwo : InfoWithArguement
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
